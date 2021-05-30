@@ -36,7 +36,7 @@ class MainScreen extends StatelessWidget {
                 child: Container(
                   margin: EdgeInsets.only(top: 20),
                   child: Text(
-                    "Aplikasi ini berisikan informasi rumah sakit yang ada di Surabaya",
+                    "Aplikasi ini berisikan informasi rumah sakit di Surabaya",
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -63,7 +63,7 @@ class MainScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text("Masuk"),
+                  child: Text("Lanjut"),
                   style: OutlinedButton.styleFrom(
                     primary: Colors.purple,
                     backgroundColor: Colors.white,

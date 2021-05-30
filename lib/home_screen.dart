@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_submission_dicoding/model/data_rs.dart';
+import 'package:flutter_submission_dicoding/detail_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -33,40 +34,47 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         itemBuilder: (BuildContext context, int index) {
           final DataRs dr = DataRsList[index];
-          return Padding(
-            padding: EdgeInsets.all(5),
-            child: Card(
-              semanticContainer: true,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            dr.imageRs,
+          return InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DetailScreen(dr: dr);
+              }));
+            },
+            child: Padding(
+              padding: EdgeInsets.all(5),
+              child: Card(
+                semanticContainer: true,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                clipBehavior: Clip.antiAlias,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              dr.imageRs,
+                            ),
+                            fit: BoxFit.fill,
                           ),
-                          fit: BoxFit.fill,
                         ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Text(
-                      dr.name,
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
+                    Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Text(
+                        dr.name,
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );
