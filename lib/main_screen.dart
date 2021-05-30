@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_submission_dicoding/home_screen.dart';
 
 class MainScreen extends StatelessWidget {
   @override
@@ -30,23 +31,38 @@ class MainScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(top: 20),
-                child: Text(
-                  "Aplikasi ini berisikan informasi rumah sakit yang ada di Surabaya",
-                  overflow: TextOverflow.ellipsis,
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                child: Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: Text(
+                    "Aplikasi ini berisikan informasi rumah sakit yang ada di Surabaya",
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ),
-              Container(
-                child: Text(
-                  "Beserta informasi fasilitas yang ada di dalam rumah sakit",
-                  overflow: TextOverflow.ellipsis,
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                child: Container(
+                  child: Text(
+                    "Beserta informasi fasilitas yang ada di dalam rumah sakit",
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ),
               Container(
                 margin: EdgeInsets.only(top: 60),
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return HomeScreen();
+                        },
+                      ),
+                    );
+                  },
                   child: Text("Masuk"),
                   style: OutlinedButton.styleFrom(
                     primary: Colors.purple,

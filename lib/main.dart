@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main_screen.dart';
+import 'package:flutter_submission_dicoding/main_screen.dart';
 
 void main() {
   runApp(MyApp());
