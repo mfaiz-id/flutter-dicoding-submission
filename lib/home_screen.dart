@@ -20,13 +20,74 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool isGrid = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Rumah Sakit"),
       ),
-      body: GridView.builder(
+      floatingActionButton: Container(
+          padding: EdgeInsets.only(bottom: 3),
+          child: Stack(
+            children: <Widget>[
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  margin: EdgeInsets.only(right: 55),
+                  child: FloatingActionButton(
+                    child: Icon(
+                      Icons.format_list_bulleted,
+                      color: isGrid ? Colors.grey.shade800 : Colors.white,
+                    ),
+                    backgroundColor: isGrid ? Colors.white : Colors.purple,
+                    onPressed: () {
+                      setState(() {
+                        isGrid = false;
+                      });
+                    },
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  margin: EdgeInsets.only(left: 55),
+                  child: FloatingActionButton(
+                    child: Icon(
+                      Icons.grid_view,
+                      color: isGrid ? Colors.white : Colors.grey.shade800,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        isGrid = true;
+                      });
+                    },
+                    backgroundColor: isGrid ? Colors.purple : Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          )),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      body: isGrid ? MyGrid() : MyList(),
+    );
+  }
+}
+
+class MyList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text("Tes"),
+    );
+  }
+}
+
+class MyGrid extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
         itemCount: dataRsList.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           childAspectRatio: 8.0 / 10.0,
@@ -78,8 +139,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           );
-        },
-      ),
-    );
+        });
   }
 }
