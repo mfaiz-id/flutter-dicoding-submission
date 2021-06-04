@@ -27,13 +27,13 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Rumah Sakit"),
       ),
       body: GridView.builder(
-        itemCount: DataRsList.length,
+        itemCount: dataRsList.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           childAspectRatio: 8.0 / 10.0,
           crossAxisCount: 2,
         ),
         itemBuilder: (BuildContext context, int index) {
-          final DataRs dr = DataRsList[index];
+          final DataRs dr = dataRsList[index];
           return InkWell(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {

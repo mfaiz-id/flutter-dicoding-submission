@@ -14,7 +14,7 @@ class DataRs {
   });
 }
 
-var DataRsList = [
+var dataRsList = [
   DataRs(
     name: 'RSUD Dr. Soetomo',
     location:
